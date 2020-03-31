@@ -33,7 +33,8 @@
 - Pour que ses méthodes soient accessibles par le client, cette interface doit hériter de l'interface **Remote**.
 - Toutes les méthodes utilisables à distance doivent pouvoir lever les exceptions de type **RemoteException** qui sont spécifiques à l'appel distant.  ( On pourra utiliser la Class **UncicastRemoteObject** )
 - Cette interface devra être placée sur les deux machines (serveur et client). Seules les interfaces doivent être sur le clients ( pas les implémentations ).
-- 
+
+
 ```java
 package youcef.f;
 import java.rmi.Remote;
@@ -43,8 +44,8 @@ public interface ITache extends Remote {
 	public int addition(int a, int b) throws RemoteException;
 }
 ```
-### Implémentations des interfaces
 
+### Implémentations des interfaces
 
 ```java
 package youcef.f;
@@ -96,9 +97,21 @@ public class ServerRmi {
 
 ## Implémentation client
 
-Importer Toutes interfaces implémentant la Class **Remote** sur le client. En conservant le nom du package de l'interface.
+Importer Toutes interfaces implémentant la Class **Remote** sur le client soit manuellement en conservant le nom du package de l'interface soit depuis un export sous forme d'un fichier jar de toutes les interfaces nécessaires.
+
+Export d'un fichier jar depuis le server
+
+![socket tcp](doc/exportDesInterfaces.jpg)
+
+
+Import d'un fichier jar sur le client
+
+![socket tcp](doc/importDesInterfaces.jpg)
+
+
 
 Interface **ITache**
+
 
 ```java
 package youcef.f;
